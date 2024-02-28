@@ -1,0 +1,32 @@
+{
+	"manifest_version": 2.0,
+	"id": "massz",
+	"name": "MASSZ",
+	"version": "1.0",
+	"namespace": "MASSZ",
+	"description": "Módulo para Abrir Seus Sistemas no Zabbix",
+	"author": "Leandro Dethloff",
+	"actions": {
+		"link.1": {
+			"class": "Link1",
+			"view": "link.1"
+		},
+		"link.2": {
+			"class": "Link2",
+			"view": "link.2"
+		},
+		"link.3": {
+			"class": "Link3",
+			"view": "link.3"
+		},
+		"link.4": {
+			"class": "Link4",
+			"view": "link.4"
+		},
+		"special.link": {
+			"class": "SpecialLink",
+			"view": "special.link"
+		}
+
+	}
+}
