@@ -11,6 +11,6 @@ https://www.zabbix.com/documentation/current/en/manual/extensions/frontendmodule
 ## O código contém comentários e exemplos de uso para que você possa adaptá-lo da melhor forma para o seu ambiente.
 ## The code contains comments and usage examples so you can adapt it to your environment in the best way possible.
 
-### Aceito que você me pague uma coca-cola pra me incentivar a manter o projeto ;)
+### Aceito que você me pague uma coca-cola pra me incentivar a manter o projeto ;) PIX leandroinfo@gmail.com
 ### I'd be happy to accept a Coke as a token of appreciation for my work on the project ;)
 
