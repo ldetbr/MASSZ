@@ -1,0 +1,5 @@
+{
+    "allowed_user_group": "Zabbix administrators",
+    "default_icon": "zi-monitoring",
+    "menus": []
+}

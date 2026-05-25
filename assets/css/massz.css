@@ -1,0 +1,843 @@
+/**
+ * MASSZ v2.0 - main styling sheet
+ * Conceived by Leandro Dethloff, presented at Zabbix Conference LATAM 2024.
+ * We thank God and our Savior Jesus Christ.
+ */
+
+/* ===== Variáveis Principais & Containers / Core Variables & Containers ===== */
+:root {
+    --massz-primary: #1976d2;
+    --massz-primary-hover: #1565c0;
+    --massz-success: #2e7d32;
+    --massz-success-hover: #1b5e20;
+    --massz-danger: #d32f2f;
+    --massz-danger-hover: #c62828;
+    --massz-warning: #f57c00;
+    --massz-gray-light: #f5f5f5;
+    --massz-gray-border: #dee2e6;
+    --massz-text-main: #333333;
+    --massz-text-muted: #666666;
+    --massz-bg-card: #ffffff;
+    --massz-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --massz-radius: 6px;
+    --massz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Layout de Gestão / Management Layout ===== */
+.massz-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    font-family: inherit;
+}
+
+/* Banner de Cabeçalho & Créditos / Header & Credits Banner */
+.massz-header-banner {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: var(--massz-radius);
+    margin-bottom: 20px;
+    box-shadow: var(--massz-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.massz-header-title h2 {
+    margin: 0 0 5px 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.massz-header-title p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+.massz-header-credits {
+    text-align: right;
+    font-size: 12px;
+}
+.massz-header-credits a {
+    color: #ffd700;
+    text-decoration: underline;
+    font-weight: 600;
+}
+.massz-header-credits a:hover {
+    color: #fff;
+}
+.massz-thanks-god {
+    font-style: italic;
+    opacity: 0.85;
+    margin-top: 3px;
+}
+
+/* Grade do Formulário de Configurações / Settings Form Grid */
+.massz-general-card {
+    background: var(--massz-bg-card);
+    border: 1px solid var(--massz-gray-border);
+    border-radius: var(--massz-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--massz-shadow);
+}
+.massz-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--massz-gray-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Layout do Construtor de Menu / Menu Builder Layout */
+.massz-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.massz-menu-card {
+    background: var(--massz-bg-card);
+    border: 1px solid var(--massz-gray-border);
+    border-radius: var(--massz-radius);
+    padding: 15px;
+    box-shadow: var(--massz-shadow);
+    border-left: 4px solid var(--massz-primary);
+    position: relative;
+    transition: var(--massz-transition);
+}
+.massz-menu-card.existing-menu {
+    border-left-color: var(--massz-warning);
+}
+.massz-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.massz-menu-title-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.massz-menu-badge {
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+    background: #e3f2fd;
+    color: #0d47a1;
+}
+.massz-menu-card.existing-menu .massz-menu-badge {
+    background: #fff3e0;
+    color: #e65100;
+}
+.massz-menu-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Estilização de Campos do Formulário / Form Fields Styling */
+.massz-form-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.massz-col-3 { grid-column: span 3; }
+.massz-col-4 { grid-column: span 4; }
+.massz-col-6 { grid-column: span 6; }
+.massz-col-8 { grid-column: span 8; }
+.massz-col-12 { grid-column: span 12; }
+
+@media (max-width: 768px) {
+    .massz-col-3, .massz-col-4, .massz-col-6, .massz-col-8 {
+        grid-column: span 12 !important;
+    }
+}
+.massz-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.massz-form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--massz-text-muted);
+}
+.massz-input, .massz-select {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 13px !important;
+    background: #ffffff;
+    color: #333333;
+    border: 1px solid var(--massz-gray-border);
+    border-radius: 4px;
+    transition: var(--massz-transition);
+    display: block !important;
+}
+.massz-input {
+    height: 36px !important;
+    padding: 6px 12px !important;
+    line-height: normal !important;
+}
+.massz-select {
+    height: auto !important;
+    padding: 6px 10px !important;
+    line-height: normal !important;
+    vertical-align: middle !important;
+    max-width: none !important;
+    min-width: 180px !important;
+    box-sizing: border-box !important;
+    appearance: menulist !important;
+    -webkit-appearance: menulist !important;
+    display: block !important;
+}
+.massz-select option {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+    line-height: normal !important;
+}
+.massz-input:focus, .massz-select:focus {
+    border-color: var(--massz-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* Área de Configuração de Links / Links Config Area */
+.massz-links-section {
+    background: #fdfdfd;
+    border: 1px dashed var(--massz-gray-border);
+    border-radius: var(--massz-radius);
+    padding: 15px;
+    margin-top: 15px;
+}
+.massz-links-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.massz-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.massz-link-item {
+    background: #ffffff;
+    border: 1px solid var(--massz-gray-border);
+    border-radius: var(--massz-radius);
+    padding: 12px;
+    position: relative;
+    border-left: 3px solid var(--massz-success);
+    transition: var(--massz-transition);
+}
+.massz-link-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.massz-link-title {
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Alternador de detalhes de configurações avançadas / Advanced settings details toggle */
+.massz-link-details {
+    padding-top: 10px;
+    margin-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+.massz-details-toggle {
+    font-size: 11px;
+    color: var(--massz-primary);
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.massz-details-toggle:hover {
+    text-decoration: underline;
+}
+
+/* Lista de configuração de parâmetros / Params config list */
+.massz-params-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid var(--massz-gray-border);
+}
+.massz-param-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.massz-param-row > * {
+    flex: 1;
+    min-width: 160px; /* Aumentado para evitar corte de texto / Increased to prevent clipping */
+}
+.massz-param-row input, .massz-param-row select {
+    box-sizing: border-box !important;
+    font-size: 12px !important;
+}
+.massz-param-row input {
+    height: 32px !important;
+    padding: 6px 10px !important;
+    line-height: normal !important;
+}
+.massz-param-row select {
+    height: auto !important;
+    padding: 5px 8px !important;
+    line-height: normal !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    min-width: 150px !important;
+    appearance: menulist !important;
+    -webkit-appearance: menulist !important;
+}
+.massz-param-row > button.massz-btn {
+    flex: 0 0 auto;
+    min-width: auto;
+    height: 32px;
+}
+
+/* Botões / Buttons */
+.massz-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--massz-transition);
+    user-select: none;
+}
+.massz-btn-primary {
+    background: var(--massz-primary);
+    color: #ffffff;
+}
+.massz-btn-primary:hover {
+    background: var(--massz-primary-hover);
+}
+.massz-btn-success {
+    background: var(--massz-success);
+    color: #ffffff;
+}
+.massz-btn-success:hover {
+    background: var(--massz-success-hover);
+}
+.massz-btn-danger {
+    background: var(--massz-danger);
+    color: #ffffff;
+}
+.massz-btn-danger:hover {
+    background: var(--massz-danger-hover);
+}
+.massz-btn-secondary {
+    background: #e0e0e0;
+    color: #333333;
+    border-color: #cccccc;
+}
+.massz-btn-secondary:hover {
+    background: #d5d5d5;
+}
+.massz-btn-small {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+.massz-btn-icon {
+    padding: 5px 8px;
+    font-size: 13px;
+}
+
+/* Estilos de tabela de lista para UI dividida / Table list styles for split UI */
+.massz-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+.massz-table th {
+    background: var(--massz-gray-light);
+    color: var(--massz-text-muted);
+    font-weight: 600;
+    padding: 10px;
+    border-bottom: 2px solid var(--massz-gray-border);
+    text-align: left;
+    font-size: 12px;
+}
+.massz-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--massz-gray-border);
+    font-size: 13px;
+    vertical-align: middle;
+}
+.massz-table tr.massz-row-editing td {
+    background-color: #f1f8ff !important;
+    border-top: 1px solid #c8e1ff !important;
+    border-bottom: 1px solid #c8e1ff !important;
+    color: #0d47a1 !important;
+}
+.massz-table tr.massz-row-editing td,
+.massz-table tr.massz-row-editing td span,
+.massz-table tr.massz-row-editing td strong {
+    color: #0d47a1 !important;
+}
+.massz-table tr.massz-row-editing td .massz-icon {
+    background-color: #0d47a1 !important;
+}
+.massz-link-count {
+    background: #e0e0e0;
+    color: #333;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* Campo de Seleção de Ícone / Icon Selection Field */
+.massz-icon-input-wrapper {
+    display: flex;
+    gap: 6px;
+}
+.massz-selected-icon-preview {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--massz-gray-border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    font-size: 16px;
+}
+
+/* Modal e Seletor de Ícones / Modal and Icon Picker */
+.massz-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    backdrop-filter: blur(2px);
+}
+.massz-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.massz-modal-content {
+    background: var(--massz-bg-card);
+    width: 90%;
+    max-width: 750px;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(-20px);
+    transition: transform 0.2s ease;
+}
+.massz-modal.active .massz-modal-content {
+    transform: translateY(0);
+}
+.massz-modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--massz-gray-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+.massz-modal-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+.massz-modal-close {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #999;
+}
+.massz-modal-close:hover {
+    color: #d32f2f;
+}
+.massz-modal-body {
+    padding: 15px 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Abas dentro do Modal / Tabs inside Modal */
+.massz-modal-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--massz-gray-border);
+    margin-bottom: 15px;
+}
+.massz-modal-tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    border-bottom: 2px solid transparent;
+    color: var(--massz-text-muted);
+}
+.massz-modal-tab:hover {
+    color: var(--massz-primary);
+}
+.massz-modal-tab.active {
+    border-bottom-color: var(--massz-primary);
+    color: var(--massz-primary);
+}
+.massz-search-wrapper {
+    margin-bottom: 15px;
+}
+.massz-search-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 13px;
+    border: 1px solid var(--massz-gray-border);
+    border-radius: 4px;
+}
+
+/* Grade de Ícones / Icon Grid */
+.massz-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 5px;
+}
+.massz-icon-cell {
+    border: 1px solid var(--massz-gray-border);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: var(--massz-transition);
+    background: #ffffff;
+}
+.massz-icon-cell:hover {
+    border-color: var(--massz-primary);
+    background: #e3f2fd;
+    transform: translateY(-2px);
+}
+.massz-icon-cell .icon-preview {
+    font-size: 20px;
+    color: #444;
+}
+.massz-icon-cell .icon-name {
+    font-size: 8px;
+    color: #888;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.massz-modal-footer {
+    padding: 12px 20px;
+    border-top: 1px solid var(--massz-gray-border);
+    display: flex;
+    justify-content: flex-end;
+    background: #f8f9fa;
+}
+
+/* Seção do Rodapé / Footer Section */
+.massz-footer-credits {
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid var(--massz-gray-border);
+    color: var(--massz-text-muted);
+    font-size: 11px;
+}
+.massz-footer-credits p {
+    margin: 4px 0;
+}
+
+/* ===== Container de Visualização do Iframe / Iframe View Container ===== */
+.massz-iframe-container {
+    width: 100%;
+    height: calc(100vh - 120px);
+    position: relative;
+    border-radius: var(--massz-radius);
+    overflow: hidden;
+    background: #f5f5f5;
+    border: 1px solid var(--massz-gray-border);
+}
+.massz-responsive-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+}
+.massz-iframe-loader {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.massz-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0,0,0,0.1);
+    border-top-color: var(--massz-primary);
+    border-radius: 50%;
+    animation: massz-spin 1s infinite linear;
+    margin-bottom: 12px;
+}
+.massz-loader-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--massz-text-muted);
+}
+@keyframes massz-spin {
+    to { transform: rotate(360deg); }
+}
+.massz-iframe-fallback {
+    position: absolute;
+    bottom: 20px; right: 20px;
+    background: #ffffff;
+    border: 1px solid var(--massz-gray-border);
+    border-radius: var(--massz-radius);
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    max-width: 320px;
+    z-index: 11;
+    animation: massz-slide-up 0.3s ease;
+}
+.massz-iframe-fallback p {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.4;
+}
+@keyframes massz-slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== Ícones MASSZ Customizados usando pseudoelemento ::before (combinando com padrão zi-* do Zabbix) / Custom MASSZ Icons using ::before pseudo-element (matching Zabbix zi-* pattern) ===== */
+
+/*
+ * O Zabbix renderiza ícones da barra lateral via ::before no elemento <a> (ícones de fonte).
+ * Nossos ícones SVG customizados devem seguir o mesmo padrão: ::before como inline-block com mask-image.
+ * A classe do ícone vai na tag <a> (definida via CMenuItem->setIcon), então miramos em
+ * elementos cuja classe contém "massz-icon" assim como o Zabbix mira em "zi-".
+ * ---
+ * Zabbix renders sidebar icons via ::before on the <a> element (font icons).
+ * Our custom SVG icons must follow the same pattern: ::before as inline-block with mask-image.
+ * The icon class goes on the <a> tag (set via CMenuItem->setIcon), so we target
+ * elements whose class contains "massz-icon" just like Zabbix targets "zi-".
+ */
+
+/* Itens de menu de nível superior: combinam com padding e dimensionamento ::before do Zabbix para zi-* / Top-level menu items: match Zabbix's padding and ::before sizing for zi-* */
+.sidebar [class*="massz-icon-"]:not(.massz-icon) {
+    padding-left: 10px !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+.sidebar [class*="massz-icon-"]:not(.massz-icon)::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: 10px !important;
+    vertical-align: middle !important;
+    background-color: #8cb2ca !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center !important;
+    mask-size: contain !important;
+    -webkit-mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important;
+    -webkit-mask-size: contain !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    transition: background-color 0.2s ease-out !important;
+}
+.sidebar [class*="massz-icon-"]:not(.massz-icon):hover::before,
+.sidebar [class*="massz-icon-"]:not(.massz-icon):focus::before {
+    background-color: inherit !important;
+}
+.sidebar .has-submenu.is-expanded > [class*="massz-icon-"]:not(.massz-icon)::before {
+    background-color: #8cb2ca !important;
+}
+.sidebar .has-submenu.is-expanded > [class*="massz-icon-"]:not(.massz-icon):hover::before,
+.sidebar .has-submenu.is-expanded > [class*="massz-icon-"]:not(.massz-icon):focus::before {
+    background-color: #ffffff !important;
+}
+
+/* Itens de submenu: ícone menor, combina com estilo zi-* do submenu do Zabbix / Submenu items: smaller icon, match Zabbix submenu zi-* styling */
+.sidebar .submenu [class*="massz-icon-"]:not(.massz-icon)::before {
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 8px !important;
+    background-color: inherit !important;
+}
+
+/* Dentro da UI de gestão do MASSZ (sem barra lateral), exibe o ícone diretamente / Inside the MASSZ manager UI (non-sidebar), display the icon element directly */
+.massz-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-color: currentColor;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+}
+
+/* Versão de Ícone Grande dentro do seletor de ícones de gestão / Large Icon version inside the manager icon picker */
+.massz-icon.icon-lg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ===== Definições de máscara SVG para ::before (barra lateral) e .massz-icon (gestão) / SVG mask definitions for both ::before (sidebar) and .massz-icon (manager) ===== */
+.massz-icon-server::before, .massz-icon.massz-icon-server {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="20" height="6" x="2" y="3" rx="1"/><rect width="20" height="6" x="2" y="15" rx="1"/><path stroke-linecap="round" d="M6 6h.01M6 18h.01M18 6h.01M18 18h.01"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="20" height="6" x="2" y="3" rx="1"/><rect width="20" height="6" x="2" y="15" rx="1"/><path stroke-linecap="round" d="M6 6h.01M6 18h.01M18 6h.01M18 18h.01"/></svg>');
+}
+.massz-icon-database::before, .massz-icon.massz-icon-database {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>');
+}
+.massz-icon-cloud::before, .massz-icon.massz-icon-cloud {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M17.5 19A5.5 5.5 0 0 0 18 8h-1.26a8 8 0 1 0-11.62 3.8A4 4 0 0 0 6.5 19z"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M17.5 19A5.5 5.5 0 0 0 18 8h-1.26a8 8 0 1 0-11.62 3.8A4 4 0 0 0 6.5 19z"/></svg>');
+}
+.massz-icon-network::before, .massz-icon.massz-icon-network {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="6" height="6" x="9" y="1" rx="1"/><rect width="6" height="6" x="2" y="17" rx="1"/><rect width="6" height="6" x="16" y="17" rx="1"/><path d="M12 7v5m0 0v5m0-5H5v5m7-5h9v5"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="6" height="6" x="9" y="1" rx="1"/><rect width="6" height="6" x="2" y="17" rx="1"/><rect width="6" height="6" x="16" y="17" rx="1"/><path d="M12 7v5m0 0v5m0-5H5v5m7-5h9v5"/></svg>');
+}
+.massz-icon-chart-bar::before, .massz-icon.massz-icon-chart-bar {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6M3 20h18"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6M3 20h18"/></svg>');
+}
+.massz-icon-chart-line::before, .massz-icon.massz-icon-chart-line {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M3 3v18h18M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/><circle cx="7" cy="14.3" r="1" fill="black"/><circle cx="10.8" cy="10.5" r="1" fill="black"/><circle cx="13.6" cy="13.2" r="1" fill="black"/><circle cx="18.7" cy="8" r="1" fill="black"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M3 3v18h18M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/><circle cx="7" cy="14.3" r="1" fill="black"/><circle cx="10.8" cy="10.5" r="1" fill="black"/><circle cx="13.6" cy="13.2" r="1" fill="black"/><circle cx="18.7" cy="8" r="1" fill="black"/></svg>');
+}
+.massz-icon-chart-pie::before, .massz-icon.massz-icon-chart-pie {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v10h10M12 12l-7 7"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v10h10M12 12l-7 7"/></svg>');
+}
+.massz-icon-terminal::before, .massz-icon.massz-icon-terminal {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>');
+}
+.massz-icon-globe::before, .massz-icon.massz-icon-globe {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20"/></svg>');
+}
+.massz-icon-shield::before, .massz-icon.massz-icon-shield {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>');
+}
+.massz-icon-key::before, .massz-icon.massz-icon-key {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.778zM19 4l-4 4 1.5 1.5L18 8l1.5 1.5 2-2z"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.778zM19 4l-4 4 1.5 1.5L18 8l1.5 1.5 2-2z"/></svg>');
+}
+.massz-icon-cpu::before, .massz-icon.massz-icon-cpu {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="12" height="12" x="6" y="6" rx="2"/><path d="M9 1v5M15 1v5M9 18v5M15 18v5M1 9h5M1 15h5M18 9h5M18 15h5"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="12" height="12" x="6" y="6" rx="2"/><path d="M9 1v5M15 1v5M9 18v5M15 18v5M1 9h5M1 15h5M18 9h5M18 15h5"/></svg>');
+}
+.massz-icon-memory::before, .massz-icon.massz-icon-memory {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="20" height="8" x="2" y="8" rx="1"/><path d="M6 16v2M10 16v2M14 16v2M18 16v2M6 6h12v2H6z"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="20" height="8" x="2" y="8" rx="1"/><path d="M6 16v2M10 16v2M14 16v2M18 16v2M6 6h12v2H6z"/></svg>');
+}
+.massz-icon-disk::before, .massz-icon.massz-icon-disk {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2"/><circle cx="12" cy="7" r="3"/><circle cx="12" cy="16" r="1"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2"/><circle cx="12" cy="7" r="3"/><circle cx="12" cy="16" r="1"/></svg>');
+}
+.massz-icon-wifi::before, .massz-icon.massz-icon-wifi {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M12 18h.01M5 12a10 10 0 0 1 14 0M8.5 15a5 5 0 0 1 7 0M1.5 9a15 15 0 0 1 21 0"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M12 18h.01M5 12a10 10 0 0 1 14 0M8.5 15a5 5 0 0 1 7 0M1.5 9a15 15 0 0 1 21 0"/></svg>');
+}
+.massz-icon-code::before, .massz-icon.massz-icon-code {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M16 18l6-6-6-6M8 6L2 12l6 6M14 4l-4 16"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M16 18l6-6-6-6M8 6L2 12l6 6M14 4l-4 16"/></svg>');
+}
+.massz-icon-api::before, .massz-icon.massz-icon-api {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="8" height="8" x="8" y="8" rx="1"/><circle cx="12" cy="2" r="1"/><circle cx="12" cy="22" r="1"/><circle cx="2" cy="12" r="1"/><circle cx="22" cy="12" r="1"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="8" height="8" x="8" y="8" rx="1"/><circle cx="12" cy="2" r="1"/><circle cx="12" cy="22" r="1"/><circle cx="2" cy="12" r="1"/><circle cx="22" cy="12" r="1"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></svg>');
+}
+.massz-icon-docker::before, .massz-icon.massz-icon-docker {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M4 14h16v2a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-2zM2 14h20M9 8h2v2H9zM13 8h2v2h-2zM9 5h2v2H9zM13 5h2v2h-2zM5 8h2v2H5zM17 8h2v2h-2zM12 14v6"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M4 14h16v2a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-2zM2 14h20M9 8h2v2H9zM13 8h2v2h-2zM9 5h2v2H9zM13 5h2v2h-2zM5 8h2v2H5zM17 8h2v2h-2zM12 14v6"/></svg>');
+}
+.massz-icon-kubernetes::before, .massz-icon.massz-icon-kubernetes {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M12 2l8 4v8l-8 8-8-8V6l8-4zM12 2v20M4 14h16M8 8l8 8M16 8L8 16"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M12 2l8 4v8l-8 8-8-8V6l8-4zM12 2v20M4 14h16M8 8l8 8M16 8L8 16"/></svg>');
+}
+.massz-icon-rocket::before, .massz-icon.massz-icon-rocket {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5 2 0 4-1 5.5-2.5m-3-3l12-12m-12 12c-1.5-1.5-1.5-4.5 0-6l9-9m3 3l-9 9m9-9c1.5 1.5 4.5 1.5 6 0l-9-9m3 12c1.5 1.5 1.5 4.5 0 6l-9 9"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5 2 0 4-1 5.5-2.5m-3-3l12-12m-12 12c-1.5-1.5-1.5-4.5 0-6l9-9m3 3l-9 9m9-9c1.5 1.5 4.5 1.5 6 0l-9-9m3 12c1.5 1.5 1.5 4.5 0 6l-9 9"/></svg>');
+}
+.massz-icon-lightning::before, .massz-icon.massz-icon-lightning {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>');
+}
+.massz-icon-pulse::before, .massz-icon.massz-icon-pulse {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>');
+}
+.massz-icon-satellite::before, .massz-icon.massz-icon-satellite {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="6" height="12" x="2" y="6" rx="1" transform="rotate(45 5 12)"/><rect width="6" height="12" x="16" y="6" rx="1" transform="rotate(-45 19 12)"/><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0-4v4m0 8v4m-8-8h4m8 0h4"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><rect width="6" height="12" x="2" y="6" rx="1" transform="rotate(45 5 12)"/><rect width="6" height="12" x="16" y="6" rx="1" transform="rotate(-45 19 12)"/><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0-4v4m0 8v4m-8-8h4m8 0h4"/></svg>');
+}
+.massz-icon-tools::before, .massz-icon.massz-icon-tools {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z"/></svg>');
+}
+
+/* Oculta o Rodapé do Zabbix nas páginas do MASSZ / Hide Zabbix Footer on MASSZ pages */
+footer, .footer, #footer, [role="contentinfo"] {
+    display: none !important;
+}
+
+

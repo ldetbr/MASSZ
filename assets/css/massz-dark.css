@@ -1,0 +1,86 @@
+/**
+ * MASSZ v2.0 - Sobrescritas para tema escuro / dark theme overrides
+ */
+[theme="dark-theme"] {
+    --massz-bg-card: #2b2b2b;
+    --massz-gray-light: #1f1f1f;
+    --massz-gray-border: #3f3f3f;
+    --massz-text-main: #e1e1e1;
+    --massz-text-muted: #a0a0a0;
+    --massz-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+[theme="dark-theme"] .massz-input, 
+[theme="dark-theme"] .massz-select {
+    background: #383838 !important;
+    color: #e1e1e1 !important;
+    border-color: #555555 !important;
+}
+
+[theme="dark-theme"] .massz-input:focus, 
+[theme="dark-theme"] .massz-select:focus {
+    border-color: var(--massz-primary) !important;
+}
+
+[theme="dark-theme"] .massz-btn-secondary {
+    background: #444444 !important;
+    color: #e1e1e1 !important;
+    border-color: #555555 !important;
+}
+
+[theme="dark-theme"] .massz-btn-secondary:hover {
+    background: #555555 !important;
+}
+
+[theme="dark-theme"] .massz-links-section {
+    background: #232323 !important;
+    border-color: #444444 !important;
+}
+
+[theme="dark-theme"] .massz-link-item {
+    background: #2b2b2b !important;
+    border-color: #444444 !important;
+}
+
+[theme="dark-theme"] .massz-params-list {
+    background: #202020 !important;
+}
+
+[theme="dark-theme"] .massz-modal-header,
+[theme="dark-theme"] .massz-modal-footer {
+    background: #232323 !important;
+    border-color: #444444 !important;
+}
+
+[theme="dark-theme"] .massz-icon-cell {
+    background: #2e2e2e !important;
+    border-color: #444444 !important;
+}
+
+[theme="dark-theme"] .massz-icon-cell:hover {
+    background: #3a3a3a !important;
+    border-color: var(--massz-primary) !important;
+}
+
+[theme="dark-theme"] .massz-icon-cell .icon-preview {
+    color: #e1e1e1 !important;
+}
+
+[theme="dark-theme"] .massz-selected-icon-preview {
+    background: #383838 !important;
+    border-color: #555555 !important;
+}
+
+[theme="dark-theme"] .massz-iframe-fallback {
+    background: #2b2b2b !important;
+    border-color: #444444 !important;
+    color: #e1e1e1 !important;
+}
+
+[theme="dark-theme"] .massz-iframe-fallback p {
+    color: #e1e1e1 !important;
+}
+
+[theme="dark-theme"] .massz-iframe-loader {
+    background: rgba(30, 30, 30, 0.9) !important;
+}
